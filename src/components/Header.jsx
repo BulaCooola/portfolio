@@ -1,6 +1,21 @@
 import React from "react";
+import { Link } from "react-router-dom"; // Import Link from react-router-dom
+import HomePage from "./Home";
+// import ProjectPage from "./Projects";
 
 function Header() {
+  // return (
+  //   <Router>
+  //     <div className="bg-serika_bg">
+  //       <Header />
+  //       <Routes>
+  //         <Route path="/" element={<HomePage />} />
+  //         <Route path="/projects" element={<ProjectPage />} />
+  //       </Routes>
+  //       <Footer />
+  //     </div>
+  //   </Router>
+  // );
   return (
     <div>
       <h1 className="text-4xl text-serika_text p-4">Branden Bulatao</h1>
@@ -8,24 +23,24 @@ function Header() {
         <nav className="container mx-auto flex justify-center items-center">
           <ul className="flex space-x-4">
             <li>
-              <a href="" className="hover:underline">
+              <Link to="/portfolio" className="hover:underline">
                 Home
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="#projects" className="hover:underline">
-                Projects
-              </a>
+              <Link to="/portfolio/calculator" className="hover:underline">
+                Calculator
+              </Link>
             </li>
             <li>
-              <a href="#skills" className="hover:underline">
+              <Link to="#skills" className="hover:underline">
                 Skills
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="#contact" className="hover:underline">
+              <Link to="#contact" className="hover:underline">
                 Contact
-              </a>
+              </Link>
             </li>
           </ul>
         </nav>
