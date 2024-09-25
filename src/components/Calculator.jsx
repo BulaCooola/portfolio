@@ -1,6 +1,9 @@
 // components/ProjectPage.jsx
 import { useState } from "react";
 
+// Regex for separating key
+const regex = /(\d+\.?\d*)lbs\s*(\d+\.?\d*)%/;
+
 // Calculate Fat weight
 const fatWeight = (bodyWeight, bodyFat) => {
   return bodyWeight * (bodyFat / 100);
@@ -76,11 +79,17 @@ const ProjectPage = () => {
 
   return (
     <div className="max-w-3xl mx-auto p-6 bg-white rounded-lg shadow-md">
-      <h1 className="text-2xl font-bold mb-4">Weight and Body Fat Calculator</h1>
+      <h1 className="text-2xl font-bold mb-4">Optimal Performance Calculator</h1>
       <p className="text-sm font-italic mb-4">
-        Find the weight and body fat percentage where you certify. The weights labled in green means
-        you certify at that body weight and fat percentage. If it's red, you do not certify.
+        This calculator is used for <a className="font-bold">NCAA wrestlers</a> to estimate their
+        minimum weight. This is because people might want to wrestle at a lower weight class and may
+        or may not know if they can certify or not.
       </p>
+      <p className="text-xs text-gray-600 font-bold mb-4 px-12">
+        The weights labled in <a className="text-green-500">green</a> means you certify at that body
+        weight and fat percentage. If it's <a className="text-red-500">red</a>, you do not certify.
+      </p>
+
       <form onSubmit={handleSubmit}>
         <div>
           <label className="block text-sm font-medium text-gray-700">Desired Weight (lbs): </label>
@@ -150,7 +159,8 @@ const ProjectPage = () => {
       <table className="mt-4 min-w-full border border-gray-300">
         <thead>
           <tr className="bg-gray-100">
-            <th className="p-2 text-left border-b border-gray-300">Weight & Body Fat</th>
+            <th className="p-2 text-left border-b border-gray-300">Weight</th>
+            <th className="p-2 text-left border-b border-gray-300">Body Fat</th>
             <th className="p-2 text-left border-b border-gray-300">
               Lowest Allowable Weight (lbs)
             </th>
@@ -158,11 +168,21 @@ const ProjectPage = () => {
         </thead>
         <tbody>
           {Object.keys(result).map((key) => {
+            // Separate weight and keys with regex
+            let match = key.match(regex);
+            let weight,
+              bodyFat = "";
+            if (match) {
+              weight = match[1];
+              bodyFat = match[2] + "%";
+            }
+
             const certificationStatus =
               result[key] <= desiredWeight ? "You Certify" : "You Don't Certify";
             return (
               <tr key={key} className="border-b border-gray-300">
-                <td className="p-2">{key}</td>
+                <td className="p-2">{weight}</td>
+                <td className="p-2">{bodyFat}</td>
                 <td
                   className="p-2"
                   style={{

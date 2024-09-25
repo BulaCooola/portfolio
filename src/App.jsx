@@ -7,18 +7,12 @@ import Footer from "./components/Footer";
 import Calculator from "./components/Calculator";
 
 function App() {
-  const [showProjectPage, setShowProjectPage] = useState(false); // State to control which page to show
-
-  const toggleProjectPage = () => {
-    setShowProjectPage((prev) => !prev); // Toggle the Project Page
-  };
-
   return (
     <div className="bg-serika_bg">
       <Header />
       <Routes>
         <Route path="/portfolio/" element={<HomePage />} />
-        <Route path="/portfolio/calculator" element={<Calculator />} />
+        <Route path="/portfolio/calculator/" element={<Calculator />} />
       </Routes>
       <Footer />
     </div>
