@@ -83,7 +83,8 @@ const ProjectPage = () => {
       <p className="text-sm font-italic mb-4">
         This calculator is used for <a className="font-bold">NCAA wrestlers</a> to estimate their
         minimum weight. This is because people might want to wrestle at a lower weight class and may
-        or may not know if they can certify or not.
+        or may not know if they can certify or not. The lowest body fat percentage allowed is 5%
+        body fat.
       </p>
       <p className="text-xs text-gray-600 font-bold mb-4 px-12">
         The weights labled in <a className="text-green-500">green</a> means you certify at that body
@@ -161,9 +162,8 @@ const ProjectPage = () => {
           <tr className="bg-gray-100">
             <th className="p-2 text-left border-b border-gray-300">Weight</th>
             <th className="p-2 text-left border-b border-gray-300">Body Fat</th>
-            <th className="p-2 text-left border-b border-gray-300">
-              Lowest Allowable Weight (lbs)
-            </th>
+            <th className="p-2 text-left border-b border-gray-300">Lowest Allowable Weight</th>
+            <th className="p-2 text-left border-b border-gray-300">Certification Status</th>
           </tr>
         </thead>
         <tbody>
@@ -177,8 +177,10 @@ const ProjectPage = () => {
               bodyFat = match[2] + "%";
             }
 
+            // Determine certification status
             const certificationStatus =
               result[key] <= desiredWeight ? "You Certify" : "You Don't Certify";
+
             return (
               <tr key={key} className="border-b border-gray-300">
                 <td className="p-2">{weight}</td>
