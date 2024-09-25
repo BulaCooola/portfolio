@@ -36,6 +36,24 @@ const generateMatrix = (weightRange, bfRange) => {
   return res;
 };
 
+// Calculate how many weeks it will take to reach the minimum allowable weight
+const calculateWeeksToMinWeight = (currentWeight, minWeight) => {
+  const maxWeeklyCut = 0.015; // 1.5% per week
+  let weeks = 0;
+  let tempWeight = currentWeight;
+
+  while (tempWeight > minWeight) {
+    const weeklyCut = tempWeight * maxWeeklyCut;
+    tempWeight -= weeklyCut;
+    weeks += 1;
+
+    // Prevent infinite loops by breaking if the difference is too small
+    if (tempWeight - minWeight < 0.1) break;
+  }
+
+  return `${weeks} weeks`;
+};
+
 const ProjectPage = () => {
   const [desiredWeight, setDesiredWeight] = useState(0);
   const [minWeight, setMinWeight] = useState(0);
@@ -43,6 +61,7 @@ const ProjectPage = () => {
   const [minBF, setMinBF] = useState(0);
   const [maxBF, setMaxBF] = useState(0);
   const [result, setResult] = useState({});
+  //   const [weeksToMinWeight, setWeeksToMinWeight] = useState(0);
 
   const weightClasses = [125, 133, 141, 149, 157, 165, 174, 184, 197, 285];
 
@@ -75,6 +94,11 @@ const ProjectPage = () => {
 
     const res = generateMatrix(weightRange, bfRange);
     setResult(res);
+
+    // After calculating results, calculate the number of weeks
+    // const minAllowableWeight = res[`${minWeight}lbs ${minBF}%`];
+    // const weeks = calculateWeeksToMinWeight(minWeight, desiredWeight);
+    // setWeeksToMinWeight(weeks);
   };
 
   return (
@@ -164,6 +188,7 @@ const ProjectPage = () => {
             <th className="p-2 text-left border-b border-gray-300">Body Fat</th>
             <th className="p-2 text-left border-b border-gray-300">Lowest Allowable Weight</th>
             <th className="p-2 text-left border-b border-gray-300">Certification Status</th>
+            <th className="p-2 text-left border-b border-gray-300">Time Period</th>
           </tr>
         </thead>
         <tbody>
@@ -177,6 +202,10 @@ const ProjectPage = () => {
               bodyFat = match[2] + "%";
             }
 
+            let weeks;
+            if (result[key] <= desiredWeight) {
+              weeks = calculateWeeksToMinWeight(weight, desiredWeight);
+            }
             // Determine certification status
             const certificationStatus =
               result[key] <= desiredWeight ? "You Certify" : "You Don't Certify";
@@ -194,11 +223,14 @@ const ProjectPage = () => {
                   {result[key]}
                 </td>
                 <td className="p-2">{certificationStatus}</td>
+                <td className="p-2">{weeks}</td>
               </tr>
             );
           })}
         </tbody>
       </table>
+
+      {/* <h3 className="mt-4">Estimated Weeks to Reach Minimum Weight: {weeksToMinWeight} weeks</h3> */}
     </div>
   );
 };
