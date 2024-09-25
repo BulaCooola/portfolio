@@ -10,27 +10,27 @@ function Header() {
         <nav className="container mx-auto flex justify-center items-center">
           <ul className="flex space-x-4">
             <li>
-              <NavLink to="/portfolio" className="hover:underline">
+              <NavLink to="/" className="hover:underline">
                 Home
               </NavLink>
             </li>
             <li>
-              <NavLink to="/portfolio/projects" className="hover:underline">
+              <NavLink to="/projects" className="hover:underline">
                 Projects
               </NavLink>
             </li>
             <li>
-              <NavLink to="/portfolio/calculator" className="hover:underline">
+              <NavLink to="/calculator" className="hover:underline">
                 Calculator
               </NavLink>
             </li>
             <li>
-              <NavLink to="#skills" className="hover:underline">
+              <NavLink to="/skills" className="hover:underline">
                 Skills
               </NavLink>
             </li>
             <li>
-              <NavLink to="#contact" className="hover:underline">
+              <NavLink to="/contact" className="hover:underline">
                 Contact
               </NavLink>
             </li>

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { HashRouter as Router, Route, Routes } from "react-router-dom";
 import "./App.css";
 import HomePage from "./components/Home";
 import Header from "./components/Header";
@@ -11,8 +11,8 @@ function App() {
     <div className="bg-serika_bg">
       <Header />
       <Routes>
-        <Route path="/portfolio/" element={<HomePage />} />
-        <Route path="/portfolio/calculator/" element={<Calculator />} />
+        <Route path="" element={<HomePage />} />
+        <Route path="/calculator/" element={<Calculator />} />
       </Routes>
       <Footer />
     </div>
