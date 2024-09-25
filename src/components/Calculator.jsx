@@ -73,8 +73,8 @@ const ProjectPage = () => {
       return;
     }
 
-    if (maxWeight - minWeight > 10) {
-      alert("Boundary between max_weight and min_weight exceeds 10 lbs.");
+    if (maxWeight - minWeight > 15) {
+      alert("Boundary between max_weight and min_weight exceeds 15 lbs.");
       return;
     }
 
