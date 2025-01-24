@@ -58,6 +58,7 @@ const ProjectPage = () => {
   const [desiredWeight, setDesiredWeight] = useState(0);
   const [minWeight, setMinWeight] = useState(0);
   const [maxWeight, setMaxWeight] = useState(0);
+  const [weight, setWeight] = useState(0);
   const [minBF, setMinBF] = useState(0);
   const [maxBF, setMaxBF] = useState(0);
   const [result, setResult] = useState({});
@@ -83,9 +84,18 @@ const ProjectPage = () => {
       return;
     }
 
+    if (weight < 100 || weight > 400) {
+      alert("Weight range is between 100lbs and 400lbs only.");
+      return;
+    }
+
+    // const weightRange = Array.from(
+    //   { length: Math.floor((maxWeight - minWeight) / 0.5 + 1) },
+    //   (_, i) => minWeight + i * 0.5
+    // );
     const weightRange = Array.from(
-      { length: Math.floor((maxWeight - minWeight) / 0.5 + 1) },
-      (_, i) => minWeight + i * 0.5
+      { length: Math.floor(5 / 0.5 + 1) },
+      (_, i) => weight - 2.5 + i * 0.5
     );
     const bfRange = Array.from(
       { length: Math.floor((maxBF - minBF) / 0.5 + 1) },
@@ -131,7 +141,7 @@ const ProjectPage = () => {
             ))}
           </select>
         </div>
-        <div>
+        {/* <div>
           <label className="block text-sm font-medium text-gray-700">Min Weight (lbs): </label>
           <input
             type="number"
@@ -147,6 +157,16 @@ const ProjectPage = () => {
             type="number"
             value={maxWeight}
             onChange={(e) => setMaxWeight(parseFloat(e.target.value))}
+            step="0.1"
+            required
+          />
+        </div> */}
+        <div>
+          <label className="block text-sm font-medium text-gray-700">Weight (lbs): </label>
+          <input
+            type="number"
+            value={weight}
+            onChange={(e) => setWeight(parseFloat(e.target.value))}
             step="0.1"
             required
           />
