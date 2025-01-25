@@ -31,7 +31,7 @@ function Footer() {
 
           {/* Photography Portfolio */}
           <a
-            href="https://bbulataophoto.myportfolio.com/home"
+            href="https://brandenbphoto.myportfolio.com/home"
             target="_blank"
             rel="noopener noreferrer"
             className="hover:text-blue-500"
