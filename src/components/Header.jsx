@@ -62,9 +62,16 @@ function Header() {
               </NavLink>
             </li> */}
             <li>
-              <NavLink to="/skills" className="hover:underline">
-                Skills
-              </NavLink>
+              {/* <NavLink to="/skills" className="hover:underline">
+                Resume
+              </NavLink> */}
+                <a
+                href="https://bulacooola.github.io/portfolio/images/resume.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Resume
+              </a>
             </li>
             <li>
               <NavLink to="/contact" className="hover:underline">

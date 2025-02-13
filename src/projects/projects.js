@@ -29,7 +29,7 @@ export const projects = [
       "A weight calculator for collegiate wrestlers to help estimate their minimum allowed weight when at 5% body fat.",
     technologies: [],
     image: opc,
-    link: "http://localhost:5173/portfolio/#/calculator",
+    link: "https://bulacooola.github.io/portfolio/#/calculator",
   },
   {
     id: 4,
