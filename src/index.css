@@ -1,22 +1,43 @@
-@tailwind base;
+/* @tailwind base;
 @tailwind components;
-@tailwind utilities;
+@tailwind utilities; */
+@import "tailwindcss";
+@import "tailwindcss/theme";
+@import "tailwindcss/utilities";
+
+
+@theme {
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
+    "Courier New", monospace;
+
+  --color-serika-bg: #323437;
+  --color-serika-main: #e2b714;
+  --color-serika-caret: #e2b714;
+  --color-serika-sub: #646669;
+  --color-serika-sub-alt: #2c2e31;
+  --color-serika-text: #d1d0c5;
+  --color-serika-error: #ca4754;
+  --color-serika-error-extra: #7e2a33;
+  --color-serika-colorful-error: #ca4754;
+  --color-serika-colorful-error-extra: #7e2a33;
+}
 
 @layer base {
   body {
     @apply font-mono;
+    /* @apply m-0 bg-serika-bg; */
   }
 }
 
 .serika-theme {
-  --bg-color: #323437;
-  --main-color: #e2b714;
-  --caret-color: #e2b714;
-  --sub-color: #646669;
-  --sub-alt-color: #2c2e31;
-  --text-color: #d1d0c5;
-  --error-color: #ca4754;
-  --error-extra-color: #7e2a33;
-  --colorful-error-color: #ca4754;
-  --colorful-error-extra-color: #7e2a33;
+  --color-bg: #323437;
+  --color-main: #e2b714;
+  --color-caret: #e2b714;
+  --color-sub: #646669;
+  --color-sub-alt: #2c2e31;
+  --color-text: #d1d0c5;
+  --color-error: #ca4754;
+  --color-error-extra: #7e2a33;
+  --color-colorful-error: #ca4754;
+  --color-colorful-error-extra: #7e2a33;
 }

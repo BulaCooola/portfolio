@@ -1,6 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom"; // Import Link from react-router-dom
-import HomePage from "../pages/Home";
+import HomePage from "../pages/LandingPage";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCamera } from "@fortawesome/free-solid-svg-icons";
 import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
@@ -9,7 +9,7 @@ function Header() {
   return (
     <div>
       <div className="relative flex justify-between items-center">
-        <div className="absolute left-4 flex text-serika_text space-x-4">
+        <div className="absolute left-4 flex text-serika-text space-x-4">
           {/* LinkedIn */}
           <a
             href="https://www.linkedin.com/in/branden-bulatao-4a4851251/"
@@ -40,10 +40,10 @@ function Header() {
             <FontAwesomeIcon icon={faCamera} size="2x" />
           </a>
         </div>
-        <h1 className="mx-auto text-4xl text-serika_main text-center">Branden Bulatao</h1>
+        <h1 className="mx-auto text-4xl text-serika-main text-center">Branden Bulatao</h1>
         {/* <div className="flex justify-center space-x-4"></div> */}
       </div>
-      <header className="bg-serika_bg text-serika_caret p-4">
+      <div className="bg-serika-bg text-serika-caret p-4">
         <nav className="container mx-auto flex justify-center items-center">
           <ul className="flex space-x-4">
             <li>
@@ -65,7 +65,7 @@ function Header() {
               {/* <NavLink to="/skills" className="hover:underline">
                 Resume
               </NavLink> */}
-                <a
+              <a
                 href="https://bulacooola.github.io/portfolio/images/resume.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -80,7 +80,7 @@ function Header() {
             </li>
           </ul>
         </nav>
-      </header>
+      </div>
     </div>
   );
 }
