@@ -9,19 +9,31 @@ const screens = [
 ];
 
 function NavBar() {
+  function scrollToSection(id) {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  }
+
   return (
     <div className="bg-white/90 backdrop-blur-sm rounded-full px-4 py-3 shadow-xl border border-white/20">
       <div className="flex items-center space-x-3">
         {/* Home button */}
-        <button className="rounded-full w-10 h-10 p-0 hover:opacity-50">
-          <a href="#home" className="hover:underline">
-            <Home size={16} />
-          </a>
+        <button
+          onClick={() => scrollToSection("home")}
+          className="rounded-full w-10 h-10 p-0 hover:opacity-50"
+        >
+          <Home size={16} />
         </button>
 
         {/* Screen navigation buttons */}
         {screens.map((screen) => (
-          <button className="rounded-full w-10 h-10 p-0 hover:opacity-50" id={screen.id}>
+          <button
+            onClick={() => scrollToSection(screen.id)}
+            className="rounded-full w-10 h-10 p-0 hover:opacity-50"
+            id={screen.id}
+          >
             {screen.id == "resume" ? (
               <a
                 href="https://bulacooola.github.io/portfolio/images/resume.pdf"
@@ -31,9 +43,7 @@ function NavBar() {
                 <screen.icon size={16} />
               </a>
             ) : (
-              <a href={`#${screen.id}`} className="hover:underline">
-                <screen.icon size={16} />
-              </a>
+              <screen.icon size={16} />
             )}
           </button>
         ))}

@@ -6,7 +6,7 @@ import "./App.css";
 import LandingPage from "./pages/LandingPage";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import Calculator from "./components/Calculator";
+import Calculator from "./pages/Calculator";
 import { motion } from "framer-motion";
 import NavBar from "./components/NavBar";
 
