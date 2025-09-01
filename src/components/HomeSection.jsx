@@ -1,25 +1,28 @@
 import { motion } from "framer-motion";
-import { title, content } from "../projects/transitions";
+import { container, item, image } from "../projects/transitions";
 import me from "../assets/images/me.jpg";
 
 function HomeSection() {
   return (
-    <motion.div
-      className="min-h-screen flex flex-col justify-center flex-1"
-      initial="initial"
-      animate="animate"
-      variants={content}
-      exit={{ opacity: 0 }}
-    >
-      <div className="homepage">
-        <motion.section
-          variants={title}
-          className="flex md:flex-row flex-col md:items-start items-center md:my-8 mx-8"
-        >
-          <div className="flex flex-col md:w-2/3 sm:mx-2 rounded-lg">
-            <h1 className="text-6xl mb-4 md:text-center font-bold text-serika-main">Hello!</h1>
+    <div className="min-h-screen flex flex-col justify-center flex-1">
+      <motion.section
+        variants={container}
+        initial="hidden"
+        animate="show"
+        exit={{ opacity: 0 }}
+        className="flex md:flex-row flex-col items-center md:my-8 mx-8"
+      >
+        <div className="flex flex-col md:w-2/3 sm:mx-2 rounded-lg my-8">
+          {/* <motion.div variants={item} className="flex flex-col md:w-2/3 sm:mx-2 rounded-lg"> */}
+          <motion.div variants={item} className="">
+            <h1 className="text-6xl md:text-8xl mb-4 md:text-center font-bold text-serika-main">
+              Hello!
+            </h1>
+          </motion.div>
 
-            <p className="sm:text-2xl text-md text-serika-text">
+          {/* <motion.div variants={item} className="flex flex-col md:w-2/3 sm:mx-2 rounded-lg"> */}
+          <motion.div variants={item} className="">
+            <p className="md:text-2xl text-md text-serika-text">
               My name is <a className="text-serika-main">Branden Bulatao</a> and I am a recent
               graduate at Stevens Institute of Technology majoring in Computer Science. I have a
               strong passion in <a className="text-serika-main">web development</a> and have a
@@ -40,14 +43,20 @@ function HomeSection() {
               </a>
               , surfing, traveling, and some video games.
             </p>
-          </div>
+          </motion.div>
+        </div>
 
-          <div className="md:w-110 w-2/3 sm:mx-2 aspect-square overflow-hidden object-contain rounded-xl mb-4 ">
-            <img src={me} alt={"Portrait of Me"} />
-          </div>
-        </motion.section>
-      </div>
-    </motion.div>
+        <motion.img
+          src={me}
+          alt={"Portrait of Me"}
+          variants={image}
+          initial="hidden"
+          animate="show"
+          className="md:w-110 w-2/3 sm:mx-2 aspect-square overflow-hidden object-contain rounded-xl mb-4 "
+        />
+        {/* <img src={me} alt={"Portrait of Me"} /> */}
+      </motion.section>
+    </div>
   );
 }
 
