@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
-import ProjectSection from "../components/ProjectSection";
-import HomeSection from "../components/HomeSection";
+import ProjectSection from "../components/sections/ProjectSection";
+import HomeSection from "../components/sections/HomeSection";
 import Header from "../components/Header";
 import stevensbg from "../assets/images/stevens-bg.jpg";
-import ContactSection from "../components/ContactSection";
+import ContactSection from "../components/sections/ContactSection";
+import AboutSection from "../components/sections/AboutSection";
 
 function LandingPage() {
   const [loaded, setLoaded] = useState(false);
@@ -33,6 +34,15 @@ function LandingPage() {
       <div className="absolute inset-0 bg-gradient-to-t from-serika-bg/100 from-70% via-serika-bg/75 via-75% to-transparent/100"></div>
       <section id="home" className="relative z-10 flex flex-col items-center justify-center h-full">
         <HomeSection />
+      </section>
+
+      {/* About layer */}
+      <div className="absolute inset-0 bg-gradient-to-t from-serika-bg/100 from-70% via-serika-bg/75 via-75% to-transparent/100"></div>
+      <section
+        id="about"
+        className="relative z-10 flex flex-col items-center justify-center h-full"
+      >
+        <AboutSection />
       </section>
 
       {/* Projects Layer */}

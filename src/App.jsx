@@ -8,7 +8,7 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Calculator from "./pages/Calculator";
 import { motion } from "framer-motion";
-import NavBar from "./components/NavBar";
+import NavBar from "./components/ui/NavBar";
 
 function App() {
   const location = useLocation();

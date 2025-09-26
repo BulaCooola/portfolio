@@ -112,8 +112,11 @@ const ProjectPage = () => {
   };
 
   return (
-    <div className="max-w-3xl mx-auto p-6 bg-white rounded-lg shadow-md">
-      <h1 className="text-2xl font-bold mb-4">Optimal Performance Calculator</h1>
+    <div className="max-w-3xl  mx-auto p-6 bg-white rounded-lg shadow-md">
+      <button className="px-4 py-2 bg-blue-600 text-white rounded-lg shadow-md hover:bg-blue-700 active:scale-95 transition ">
+        <a href="/">Return Home</a>
+      </button>
+      <h1 className="text-4xl font-bold my-4">Optimal Performance Calculator</h1>
       <p className="text-sm font-italic mb-4">
         This calculator is used for <a className="font-bold">NCAA wrestlers</a> to estimate their
         minimum weight. This is because people might want to wrestle at a lower weight class and may
@@ -124,7 +127,6 @@ const ProjectPage = () => {
         The weights labled in <a className="text-green-500">green</a> means you certify at that body
         weight and fat percentage. If it's <a className="text-red-500">red</a>, you do not certify.
       </p>
-
       <form onSubmit={handleSubmit}>
         <div>
           <label className="block text-sm font-medium text-gray-700">Desired Weight (lbs): </label>
@@ -141,26 +143,7 @@ const ProjectPage = () => {
             ))}
           </select>
         </div>
-        {/* <div>
-          <label className="block text-sm font-medium text-gray-700">Min Weight (lbs): </label>
-          <input
-            type="number"
-            value={minWeight}
-            onChange={(e) => setMinWeight(parseFloat(e.target.value))}
-            step="0.1"
-            required
-          />
-        </div>
-        <div>
-          <label className="block text-sm font-medium text-gray-700">Max Weight (lbs): </label>
-          <input
-            type="number"
-            value={maxWeight}
-            onChange={(e) => setMaxWeight(parseFloat(e.target.value))}
-            step="0.1"
-            required
-          />
-        </div> */}
+
         <div>
           <label className="block text-sm font-medium text-gray-700">Weight (lbs): </label>
           <input
@@ -199,8 +182,8 @@ const ProjectPage = () => {
           Calculate
         </button>
       </form>
-
       <h2 className="mt-8 text-xl font-semibold">Results:</h2>
+
       <table className="mt-4 min-w-full border border-gray-300">
         <thead>
           <tr className="bg-gray-100">
@@ -249,7 +232,6 @@ const ProjectPage = () => {
           })}
         </tbody>
       </table>
-
       {/* <h3 className="mt-4">Estimated Weeks to Reach Minimum Weight: {weeksToMinWeight} weeks</h3> */}
     </div>
   );
